@@ -12,7 +12,6 @@ require('@dnode/middlewares')(app, [
   require('@dnode/log-middleware')({ log: logger.info }),
 ]);
 
-const controller = process.env.CONTROLLER || 'tipOfTheDay';
 const maxdome = require('@dnode/request-maxdome').getRequestBuilder({
   log: logger.error,
   maxdomeOptions: {
@@ -24,7 +23,7 @@ const maxdome = require('@dnode/request-maxdome').getRequestBuilder({
 });
 
 require('@dnode/controllers')(app, [
-  require(`./controllers/${controller}`)({ maxdome }),
+  require(`./controller`)({ maxdome }),
 ]);
 
 if (module.parent) {
