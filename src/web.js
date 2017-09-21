@@ -22,8 +22,10 @@ const maxdome = require('@dnode/request-maxdome').getRequestBuilder({
   },
 });
 
+const redisClient = require('@dnode/redis')(process.env.REDIS_URL);
+
 require('@dnode/controllers')(app, [
-  require(`./controller`)({ maxdome }),
+  require(`./controller`)({ maxdome, redisClient }),
 ]);
 
 if (module.parent) {
