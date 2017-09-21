@@ -20,7 +20,6 @@
     "@dnode/log": "^1.1.1",
     "@dnode/log-middleware": "^1.0.0",
     "@dnode/middlewares": "^1.0.1",
-    "@dnode/redis": "^1.0.5",
     "@dnode/request-maxdome": "^2.0.0",
     "dotenv-safe": "^4.0.4",
     "express": "^4.14.0",

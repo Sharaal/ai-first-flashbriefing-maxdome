@@ -4,12 +4,13 @@ const _ = {
 const renderer = require('@ai-first/renderer-maxdome');
 const { Review } = require('@dnode/request-maxdome');
 
-module.exports = ({ maxdome, redisClient }) => [
+let flashbriefing;
+
+module.exports = ({ maxdome }) => [
   'get',
   [
     '/',
     async (req, res) => {
-      let flashbriefing;
       try {
         const page = await maxdome.get('v1/pages/%2F', {
           headers: {
@@ -41,9 +42,7 @@ module.exports = ({ maxdome, redisClient }) => [
           ]),
           redirectionUrl: asset.link,
         };
-        await redisClient.setJSON('FLASHBRIEFING', flashbriefing);
       } catch (e) {
-        flashbriefing = await redisClient.getJSON('FLASHBRIEFING');
         if (!flashbriefing) {
           throw Error('heimdall not available and cache is empty');
         }
