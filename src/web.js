@@ -23,7 +23,7 @@ const maxdome = require('@dnode/request-maxdome').getRequestBuilder({
 });
 
 require('@dnode/controllers')(app, [
-  require(`./controller`)({ maxdome }),
+  require(`./controller`)({ logger, maxdome }),
 ]);
 
 if (module.parent) {
