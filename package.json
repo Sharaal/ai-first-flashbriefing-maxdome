@@ -4,7 +4,7 @@
     "node": "^7.6.0"
   },
   "name": "@ai-first/flashbriefing-maxdome",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "Alexa's 'Tägliche Zusammenfassung' with the maxdome tip of the day",
   "repository": "sharaal/ai-first-flashbriefing-maxdome",
   "license": "UNLICENSED",
